@@ -29,7 +29,7 @@ The molecular-dynamics analysis comprises three 50 ns explicit-solvent replicate
 
 ## Important reproducibility boundary
 
-This GitHub repository is a curated companion to the archived research release, not a replacement for Zenodo. Large raw production trajectories are intentionally excluded from Git history. The authoritative archived release and deposited source materials are identified by Zenodo DOI `10.5281/zenodo.22774318`.
+This GitHub repository is a curated companion to the archived research release, not a replacement for Zenodo. Large raw production trajectories are intentionally excluded from Git history. The public Zenodo archive includes the archived raw Replicate 1 production trajectory segments (0–10 ns and 10–50 ns); raw production trajectories for Replicates 2 and 3 are unavailable and therefore are not included. The authoritative archived release and deposited source materials are identified by Zenodo DOI `10.5281/zenodo.22774318`.
 
 Supplementary Table S4 is restricted to verified residue-level values. Unavailable interval-residue values were not reconstructed or imputed.
 
@@ -60,18 +60,3 @@ A useful starting sequence for the historical reconstruction/docking workflow is
 04_build_local_refinement.py
 05_run_local_refinement_docking.py
 06_analyze_local_refinement.py
-```
-
-Revision analyses are documented separately in `12_v2.6_Revision_Analysis/README_v2.6_NEW_ANALYSES.md`.
-
-## Licenses
-
-Code is released under the MIT License. Research data/source-data files are provided under CC BY 4.0 unless otherwise noted.
-
-## Citation
-
-For an immutable record of the research materials, cite the Zenodo release:
-
-**Noorizadehsalout, A. (2026). NUPR1 / LZX-2-73 computational reproducibility materials. Zenodo. DOI: 10.5281/zenodo.22774318.**
-
-The manuscript should also be cited after publication.
