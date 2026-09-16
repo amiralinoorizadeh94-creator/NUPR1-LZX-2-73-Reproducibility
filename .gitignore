@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Large MD trajectories / generated archives
+*.dcd
+*.nc
+*.xtc
+*.trr
+*.mdcrd
+*.tar.gz
+*.zip
+
+# Temporary outputs
+*.tmp
+*.bak

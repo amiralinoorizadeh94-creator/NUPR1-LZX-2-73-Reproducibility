@@ -1,0 +1,11 @@
+receptor = refined_receptors/COMBO_011_R21.pdbqt
+ligand = LZX-2-73.pdbqt
+center_x = 0.737
+center_y = 0.017
+center_z = 0.574
+size_x = 30
+size_y = 30
+size_z = 30
+exhaustiveness = 16
+num_modes = 10
+energy_range = 6

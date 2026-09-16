@@ -1,0 +1,28 @@
+COMBO_011_R28 raw docking complex verification
+Source file: COMBO_011_R28_complex_raw(1).pdb
+
+PDB REMARK provenance:
+Raw coordinate-preserving complex for MD preparation
+Receptor geometry: COMBO_011_R28
+Ligand: LZX-2-73, AutoDock Vina mode 1
+Hydrogens removed intentionally; they will be rebuilt during force-field preparation
+
+Parsed atoms: 100
+Peptide atoms: 76
+Ligand atoms: 24
+Chain A residues: SER1 LEU2 ALA3 HIS4 SER5 (SLAHS)
+Chain B residues: LEU1 VAL2 THR3 LYS4 LEU5 (LVTKL)
+Ligand: LZX chain L residue 1
+Zero-coordinate atoms: 0
+
+Minimum heavy-atom distance, ligand to SLAHS: 3.0252 Å
+Closest pair: HIS A4 O -- LZX N
+
+Minimum heavy-atom distance, ligand to LVTKL: 3.0529 Å
+Closest pair: THR B3 OG1 -- LZX O
+
+Interpretation:
+The file contains the two five-residue peptide fragments and LZX-2-73 in a geometry
+consistent with simultaneous <=4.0 Å heavy-atom contact to both hotspot fragments.
+Its embedded provenance identifies it as COMBO_011_R28 receptor geometry plus
+AutoDock Vina mode 1 ligand, with hydrogens intentionally removed before force-field preparation.

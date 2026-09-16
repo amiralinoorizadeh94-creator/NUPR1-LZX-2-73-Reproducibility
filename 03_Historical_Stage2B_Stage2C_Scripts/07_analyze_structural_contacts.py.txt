@@ -1,0 +1,239 @@
+from pathlib import Path
+import math
+
+BASE = Path(__file__).resolve().parent
+
+RECEPTOR_DIR = BASE / "refined_receptors"
+DOCK_DIR = BASE / "refinement_docking_out"
+
+MODELS = [
+    "COMBO_011_R28",
+    "COMBO_011_R01",
+    "COMBO_011_R22",
+    "COMBO_044_R28",
+    "COMBO_030_R11",
+]
+
+CONTACT_CUTOFF = 4.0  # Angstrom
+
+
+def read_pdbqt_atoms(path):
+    atoms = []
+
+    with open(path, "r", encoding="utf-8", errors="ignore") as f:
+        for line in f:
+            if not (line.startswith("ATOM") or line.startswith("HETATM")):
+                continue
+
+            try:
+                atom_name = line[12:16].strip()
+                res_name = line[17:20].strip()
+                chain = line[21:22].strip()
+                res_num = line[22:26].strip()
+
+                x = float(line[30:38])
+                y = float(line[38:46])
+                z = float(line[46:54])
+
+            except Exception:
+                continue
+
+            # Ignore hydrogens where identifiable
+            element_guess = atom_name[0].upper() if atom_name else ""
+            if element_guess == "H":
+                continue
+
+            atoms.append(
+                {
+                    "atom": atom_name,
+                    "res": res_name,
+                    "chain": chain,
+                    "resnum": res_num,
+                    "xyz": (x, y, z),
+                }
+            )
+
+    return atoms
+
+
+def distance(a, b):
+    return math.sqrt(
+        (a[0] - b[0]) ** 2
+        + (a[1] - b[1]) ** 2
+        + (a[2] - b[2]) ** 2
+    )
+
+
+def split_receptor_into_fragments(atoms):
+    """
+    Expected receptor contains two peptide fragments:
+    SLAHS and LVTKL.
+
+    We first try chain IDs.
+    If chain IDs are not informative, we fall back to residue order.
+    """
+
+    chains = {}
+    for atom in atoms:
+        chains.setdefault(atom["chain"], []).append(atom)
+
+    nonempty_chains = [c for c in chains if c != ""]
+
+    if len(nonempty_chains) >= 2:
+        first = chains[nonempty_chains[0]]
+        second = chains[nonempty_chains[1]]
+        return first, second, f"chains {nonempty_chains[0]} / {nonempty_chains[1]}"
+
+    # fallback: determine unique residue groups in encountered order
+    residue_keys = []
+    seen = set()
+
+    for atom in atoms:
+        key = (atom["chain"], atom["resnum"], atom["res"])
+        if key not in seen:
+            seen.add(key)
+            residue_keys.append(key)
+
+    if len(residue_keys) < 10:
+        raise RuntimeError(
+            f"Could not identify 10 peptide residues; found {len(residue_keys)}"
+        )
+
+    first_keys = set(residue_keys[:5])
+    second_keys = set(residue_keys[5:10])
+
+    first = [
+        atom
+        for atom in atoms
+        if (atom["chain"], atom["resnum"], atom["res"]) in first_keys
+    ]
+
+    second = [
+        atom
+        for atom in atoms
+        if (atom["chain"], atom["resnum"], atom["res"]) in second_keys
+    ]
+
+    return first, second, "first 5 residues / second 5 residues"
+
+
+def min_distance(group_a, group_b):
+    return min(
+        distance(a["xyz"], b["xyz"])
+        for a in group_a
+        for b in group_b
+    )
+
+
+def count_contacts(group_a, group_b, cutoff):
+    count = 0
+
+    for a in group_a:
+        for b in group_b:
+            if distance(a["xyz"], b["xyz"]) <= cutoff:
+                count += 1
+
+    return count
+
+
+def residue_contacts(peptide_atoms, ligand_atoms, cutoff):
+    contacts = {}
+
+    for p in peptide_atoms:
+        key = (p["res"], p["resnum"])
+
+        for lig in ligand_atoms:
+            d = distance(p["xyz"], lig["xyz"])
+
+            if d <= cutoff:
+                if key not in contacts:
+                    contacts[key] = d
+                else:
+                    contacts[key] = min(contacts[key], d)
+
+    return contacts
+
+
+print("\nSTAGE 3A STRUCTURAL CONTACT ANALYSIS")
+print("=" * 72)
+print(f"Heavy-atom contact cutoff = {CONTACT_CUTOFF:.1f} A\n")
+
+
+for model in MODELS:
+
+    receptor_file = RECEPTOR_DIR / f"{model}.pdbqt"
+    ligand_file = DOCK_DIR / f"{model}_out.pdbqt"
+
+    if not receptor_file.exists():
+        print(f"{model}: receptor missing")
+        continue
+
+    if not ligand_file.exists():
+        print(f"{model}: ligand output missing")
+        continue
+
+    receptor_atoms = read_pdbqt_atoms(receptor_file)
+    ligand_atoms = read_pdbqt_atoms(ligand_file)
+
+    if not receptor_atoms or not ligand_atoms:
+        print(f"{model}: atom parsing failed")
+        continue
+
+    frag1, frag2, split_method = split_receptor_into_fragments(receptor_atoms)
+
+    min1 = min_distance(frag1, ligand_atoms)
+    min2 = min_distance(frag2, ligand_atoms)
+
+    contacts1 = count_contacts(frag1, ligand_atoms, CONTACT_CUTOFF)
+    contacts2 = count_contacts(frag2, ligand_atoms, CONTACT_CUTOFF)
+
+    residues1 = residue_contacts(frag1, ligand_atoms, CONTACT_CUTOFF)
+    residues2 = residue_contacts(frag2, ligand_atoms, CONTACT_CUTOFF)
+
+    close1 = contacts1 > 0
+    close2 = contacts2 > 0
+
+    if close1 and close2:
+        classification = "DUAL_CONTACT"
+    elif close1:
+        classification = "FRAGMENT_1_ONLY"
+    elif close2:
+        classification = "FRAGMENT_2_ONLY"
+    else:
+        classification = "NO_CLOSE_CONTACT"
+
+    print(model)
+    print(f"  split method        : {split_method}")
+    print(f"  receptor atoms      : {len(receptor_atoms)}")
+    print(f"  ligand atoms        : {len(ligand_atoms)}")
+    print(f"  fragment 1 atoms    : {len(frag1)}")
+    print(f"  fragment 2 atoms    : {len(frag2)}")
+    print(f"  min ligand-frag1    : {min1:.3f} A")
+    print(f"  min ligand-frag2    : {min2:.3f} A")
+    print(f"  contacts frag1      : {contacts1}")
+    print(f"  contacts frag2      : {contacts2}")
+    print(f"  classification      : {classification}")
+
+    print("  fragment 1 residues :", end=" ")
+    if residues1:
+        print(
+            ", ".join(
+                f"{res}{num}({d:.2f}A)"
+                for (res, num), d in residues1.items()
+            )
+        )
+    else:
+        print("none")
+
+    print("  fragment 2 residues :", end=" ")
+    if residues2:
+        print(
+            ", ".join(
+                f"{res}{num}({d:.2f}A)"
+                for (res, num), d in residues2.items()
+            )
+        )
+    else:
+        print("none")
+
+    print("-" * 72)

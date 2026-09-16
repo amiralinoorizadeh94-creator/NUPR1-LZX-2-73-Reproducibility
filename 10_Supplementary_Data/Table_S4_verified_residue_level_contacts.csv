@@ -1,0 +1,9 @@
+﻿Contact-defined interval,Time window,Trajectory residue,Biological mapping,Hotspot fragment,Contact occupancy (%),Evidence status,Definition
+Dual-bound,10–15 ns,HIE4,His34,SLAHS,99.6,Verified,Heavy-atom ligand contact ≤4.0 Å
+Dual-bound,10–15 ns,LEU6,Leu66,LVTKL,98.4,Verified,Heavy-atom ligand contact ≤4.0 Å
+Dual-bound,10–15 ns,VAL7,Val67,LVTKL,95.0,Verified,Heavy-atom ligand contact ≤4.0 Å
+Dual-bound,10–15 ns,THR8,Thr68,LVTKL,83.8,Verified,Heavy-atom ligand contact ≤4.0 Å
+Dual-bound,10–15 ns,LEU2,Leu32,SLAHS,80.8,Verified,Heavy-atom ligand contact ≤4.0 Å
+LVTKL-retained,18–25 ns,VAL7,Val67,LVTKL,99.4,Verified,Heavy-atom ligand contact ≤4.0 Å
+LVTKL-retained,18–25 ns,LEU6,Leu66,LVTKL,99.1,Verified,Heavy-atom ligand contact ≤4.0 Å
+LVTKL-retained,18–25 ns,THR8,Thr68,LVTKL,89.3,Verified,Heavy-atom ligand contact ≤4.0 Å

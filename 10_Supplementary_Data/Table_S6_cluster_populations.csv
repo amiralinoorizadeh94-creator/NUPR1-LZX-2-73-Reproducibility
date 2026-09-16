@@ -1,0 +1,16 @@
+Interval,Time_Range_ns,Cluster_ID,Frame_Count,Population_pct,Dominant,Representative_Local_Frame,Representative_Source_Frame,Representative_Structure_File
+Dual-bound,10–15,0,371,74.2,yes,NA,448,Representative_Structures/DUAL_FINAL.pdb
+Dual-bound,10–15,1,74,14.8,no,NA,NA,NA
+Dual-bound,10–15,2,38,7.6,no,NA,NA,NA
+Dual-bound,10–15,3,10,2.0,no,NA,NA,NA
+Dual-bound,10–15,4,7,1.4,no,NA,NA,NA
+LVTKL-retained,18–25,0,371,53.0,yes,NA,1248,Representative_Structures/LVTKL_FINAL.pdb
+LVTKL-retained,18–25,1,200,28.571,no,NA,NA,NA
+LVTKL-retained,18–25,2,74,10.571,no,NA,NA,NA
+LVTKL-retained,18–25,3,45,6.429,no,NA,NA,NA
+LVTKL-retained,18–25,4,10,1.429,no,NA,NA,NA
+Dissociated,30–50,0,933,46.65,yes,NA,2343,Representative_Structures/DISS_FINAL.pdb
+Dissociated,30–50,1,849,42.45,no,NA,NA,NA
+Dissociated,30–50,2,133,6.65,no,NA,NA,NA
+Dissociated,30–50,3,83,4.15,no,NA,NA,NA
+Dissociated,30–50,4,2,0.1,no,NA,NA,NA

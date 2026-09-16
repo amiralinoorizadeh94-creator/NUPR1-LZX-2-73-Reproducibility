@@ -1,0 +1,9 @@
+AutoDock Vina: 1.2.3
+OpenMM: 8.6
+CPPTRAJ: 7.6.2
+Peptide force field: Amber ff19SB
+Ligand force field: GAFF2 with AM1-BCC partial charges
+Water model: OPC
+Production GPU: NVIDIA RTX 4090
+
+Ancillary versions are not asserted unless independently recorded in project provenance.

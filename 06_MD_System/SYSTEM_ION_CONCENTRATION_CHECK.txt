@@ -1,0 +1,11 @@
+System ion-concentration check
+
+Source: 06_MD_System/COMBO_011_R28_HMR4fs_100ps.rst7
+Recorded orthorhombic box dimensions: 38.7498841 x 36.3604465 x 41.0570439 A
+Box volume: 57,847.8593 A^3 = 5.78478593e-23 L
+Added salt pairs after neutralization: 7 Na+ + 7 Cl-
+Avogadro constant: 6.02214076e23 mol^-1
+Calculated concentration of seven added NaCl pairs in this recorded box volume: 0.20094 mol L^-1 (~0.20 M)
+
+One additional Cl- was used to neutralize the solute net charge and is not counted as an added NaCl pair.
+The calculation refers to the instantaneous periodic box volume stored in the HMR-validation restart and should not be presented as an exact time-averaged bulk salt concentration.

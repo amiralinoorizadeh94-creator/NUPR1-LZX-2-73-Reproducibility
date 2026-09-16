@@ -1,0 +1,11 @@
+receptor = combined_receptors/COMBO_048.pdbqt
+ligand = LZX-2-73.pdbqt
+center_x = -0.083
+center_y = 0.196
+center_z = -0.048
+size_x = 30
+size_y = 30
+size_z = 30
+exhaustiveness = 8
+num_modes = 10
+energy_range = 6

@@ -1,0 +1,11 @@
+receptor = C:/Users/amira/OneDrive/Desktop/nupr1_stage2B_sensitivity/sensitivity_reconstructions/seed_20260923/COMBO_046.pdbqt
+ligand = C:/Users/amira/OneDrive/Desktop/nupr1_stage2B_sensitivity/LZX-2-73.pdbqt
+center_x = -0.162
+center_y = -0.098
+center_z = -0.097
+size_x = 30
+size_y = 30
+size_z = 30
+exhaustiveness = 8
+num_modes = 10
+energy_range = 6

@@ -1,0 +1,4 @@
+Panel,Interpretation,Structure_File,Interval,Representative_Source_Frame
+A,Dual-contact,DUAL_FINAL.pdb,10–15 ns,448
+B,LVTKL-contact,LVTKL_FINAL.pdb,18–25 ns,1248
+C,Low-contact,DISS_FINAL.pdb,30–50 ns,2343

@@ -1,0 +1,55 @@
+NUPR1 COMBO_011_R28 — 50 ns MD CORRECTED STRUCTURAL SUMMARY
+================================================================
+
+SIMULATION
+Total production time: 50 ns
+Frames analyzed: 5000
+Frame interval: 0.01 ns
+Explicit solvent: OPC
+Production timestep: 4 fs after hydrogen mass repartitioning
+
+HOTSPOT CONTACT OCCUPANCY (minimum ligand–fragment heavy-atom distance <=4 Å)
+SLAHS: 33.96%
+LVTKL: 57.38%
+Dual hotspot: 33.36%
+
+OBSERVED CONTACT BEHAVIOR
+Sustained SLAHS contact loss: approximately 17–18 ns
+Sustained LVTKL contact loss: approximately 28–29 ns
+Both hotspots >5 Å: approximately 28.15 ns
+Both hotspots >8 Å: approximately 28.30 ns
+Both hotspots >10 Å: approximately 28.38 ns
+Both hotspots >15 Å: approximately 31.38 ns
+
+LIGAND RMSD
+Mean: 16.6454 Å
+Maximum: 47.5079 Å
+
+PEPTIDE BACKBONE RMSD
+Mean: 5.3535 Å
+Maximum: 12.3934 Å
+
+Cα RMSF
+Mean: 4.6407 Å
+Maximum: 6.1996 Å (topology residue 1 / biological Ser31)
+
+KEY RESIDUE CONTACTS
+Dual-bound interval, 10–15 ns:
+His34/HIE4 99.6%
+Leu32/LEU2 80.8%
+Leu66/LEU6 98.4%
+Val67/VAL7 95.0%
+Thr68/THR8 83.8%
+
+LVTKL-retained interval, 18–25 ns:
+Val67/VAL7 99.4%
+Leu66/LEU6 99.1%
+Thr68/THR8 89.3%
+
+INTERPRETATION
+The trajectory showed early simultaneous contact with both reconstructed hotspot fragments.
+Sustained SLAHS contact was lost first, whereas LVTKL contact persisted longer within this
+single trajectory, followed by persistent ligand separation from both fragments. These
+observations describe contact persistence within one reduced-model trajectory and do not
+establish intrinsic affinity differences, a unique dissociation mechanism, residence times,
+or thermodynamic states.

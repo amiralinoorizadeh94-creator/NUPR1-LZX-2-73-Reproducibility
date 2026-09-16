@@ -1,0 +1,4 @@
+Replicate,SLAHS_occupancy_pct,LVTKL_occupancy_pct,Dual_pct,SLAHS_only_pct,LVTKL_only_pct,Neither_pct,SLAHS_mean_mindist_A,LVTKL_mean_mindist_A,Ligand_RMSD_mean_A,Ligand_RMSD_max_A,Peptide_RMSD_mean_A,Peptide_RMSD_max_A,CA_RMSF_mean_A,CA_RMSF_max_A,Ligand_Hbond_anyframe_pct,Ligand_Hbond_mean_per_frame,Ligand_Hbond_max_simultaneous
+Rep1,33.96,57.38,33.36,0.6,24.02,42.02,8.6131,6.6442,16.6454,47.5079,5.3535,12.3934,4.6407,6.1996,18.86,0.246,5
+Rep2,85.76,100.0,85.76,0.0,14.24,0.0,4.1811,3.0907,9.8918,40.2923,3.7371,8.7639,3.5401,5.0305,64.1,1.1358,5
+Rep3,80.16,42.32,37.74,42.42,4.58,15.26,4.7028,7.6311,15.1546,42.7703,5.5422,10.8097,4.4208,5.4116,10.6,0.1282,4
