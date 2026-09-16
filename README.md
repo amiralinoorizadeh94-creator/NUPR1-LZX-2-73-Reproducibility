@@ -1,6 +1,6 @@
-# NUPR1-LZX-2-73 Reproducibility
+﻿# NUPR1-LZX-2-73 Reproducibility
 
-Computational scripts, selected inputs, processed source data, representative structures, and analysis materials supporting the manuscript **“Modeling Dual-Hotspot Contact Geometry of LZX-2-73 with NUPR1 Peptide Fragments: Stochastic Fragment-Conformer Docking, Structural Refinement, and Molecular Dynamics.”**
+Computational scripts, selected inputs, processed source data, representative structures, and analysis materials supporting the manuscript **â€œReconstructing Dual-Hotspot Contact Geometry of LZX-2-73 with NUPR1 Peptide Fragments: Ensemble Docking, Structural Refinement, and Molecular Dynamicsâ€**
 
 **Author:** Amirali Noorizadehsalout, Department of Chemistry, Shahid Beheshti University, Tehran, Iran  
 **ORCID:** 0009-0008-7015-4386  
@@ -8,18 +8,18 @@ Computational scripts, selected inputs, processed source data, representative st
 
 ## Scope and interpretation
 
-The study uses two untethered five-residue NUPR1 hotspot fragments, SLAHS (S31–S35) and LVTKL (L66–L70). The repository supports reproducibility of the reduced-model computational workflow. It does not establish a unique or native full-length NUPR1 binding mode, binding free energy, equilibrium occupancy, residence time, dissociation kinetics, or biological efficacy.
+The study uses two untethered five-residue NUPR1 hotspot fragments, SLAHS (S31â€“S35) and LVTKL (L66â€“L70). The repository supports reproducibility of the reduced-model computational workflow. It does not establish a unique or native full-length NUPR1 binding mode, binding free energy, equilibrium occupancy, residence time, dissociation kinetics, or biological efficacy.
 
 ## Repository contents
 
-- `02_Historical_Stage2B_Inputs/` — recovered historical receptor/ligand docking inputs and input manifest.
-- `03_Historical_Stage2B_Stage2C_Scripts/` — historical reconstruction, docking, refinement, and analysis scripts.
-- `05_Structural_Interactions/` — selected COMBO_011_R28 structural source data and verification material.
-- `06_MD_System/` — reduced-system HMR topology/restart and ion-concentration check.
-- `08_Trajectory_Analysis/` — processed three-replicate trajectory-analysis outputs.
-- `10_Supplementary_Data/` — verified Supplementary Tables S1–S6 source data and representative structures.
-- `11_Sensitivity_Analysis/` — frozen 288-model sensitivity summary products plus recovered sensitivity-analysis scripts.
-- `12_v2.6_Revision_Analysis/` — Replicate 1 MIC analysis, refined-pose clustering, Figure S2 source data, and associated scripts.
+- `02_Historical_Stage2B_Inputs/` â€” recovered historical receptor/ligand docking inputs and input manifest.
+- `03_Historical_Stage2B_Stage2C_Scripts/` â€” historical reconstruction, docking, refinement, and analysis scripts.
+- `05_Structural_Interactions/` â€” selected COMBO_011_R28 structural source data and verification material.
+- `06_MD_System/` â€” reduced-system HMR topology/restart and ion-concentration check.
+- `08_Trajectory_Analysis/` â€” processed three-replicate trajectory-analysis outputs.
+- `10_Supplementary_Data/` â€” verified Supplementary Tables S1â€“S6 source data and representative structures.
+- `11_Sensitivity_Analysis/` â€” frozen 288-model sensitivity summary products plus recovered sensitivity-analysis scripts.
+- `12_v2.6_Revision_Analysis/` â€” Replicate 1 MIC analysis, refined-pose clustering, Figure S2 source data, and associated scripts.
 
 ## Core workflow
 
@@ -29,7 +29,7 @@ The molecular-dynamics analysis comprises three 50 ns explicit-solvent replicate
 
 ## Important reproducibility boundary
 
-This GitHub repository is a curated companion to the archived research release, not a replacement for Zenodo. Large raw production trajectories are intentionally excluded from Git history. The public Zenodo archive includes the archived raw Replicate 1 production trajectory segments (0–10 ns and 10–50 ns); raw production trajectories for Replicates 2 and 3 are unavailable and therefore are not included. The authoritative archived release and deposited source materials are identified by Zenodo DOI `10.5281/zenodo.22774318`.
+This GitHub repository is a curated companion to the archived research release, not a replacement for Zenodo. Large raw production trajectories are intentionally excluded from Git history. The public Zenodo archive includes the archived raw Replicate 1 production trajectory segments (0â€“10 ns and 10â€“50 ns); raw production trajectories for Replicates 2 and 3 are unavailable and therefore are not included. The authoritative archived release and deposited source materials are identified by Zenodo DOI `10.5281/zenodo.22774318`.
 
 Supplementary Table S4 is restricted to verified residue-level values. Unavailable interval-residue values were not reconstructed or imputed.
 
